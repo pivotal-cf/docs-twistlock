@@ -1,115 +1,87 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: Twistlock for PCF
 owner: Partners
 ---
 
-<p class="note warning">
-<strong>WARNING! </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
-Do not use this product in a PCF production environment.
-</p>
+Twistlock for PCF scans the droplets in your blobstores for vulnerabilities.
 
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
-
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
-
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
 
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. 
-Make sure to overview the features of the integration.
-Don't focus only on the overview of your product that is being integrated.
-See below for an example.**
+The Twistlock Cloud Native Cybersecurity Platform provides full lifecycle security for containerized environments and cloud native applications.
+It is purpose-built to deliver security for modern applications by embedding security controls directly into existing processes.
+From pipeline to perimeter, Twistlock enables security teams to scale securely and devops teams to deploy fearlessly.
 
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
-Line Interface (cf CLI) and bind them to their apps.
+Twistlock for PCF enables organizations to continuously scan droplets in their blobstores for vulnerabilities.
+The Twistlock Intelligence Stream sources vulnerability data from 30+ upstream projects, commercial sources, and includes proprietary research from Twistlock Labs.
+The Twistlock scanner can be integrated directly into your CI pipeline to pass or fail builds based on policy.
+Scan report data is available in open formats, such as as CSV and JSON.
+The comprehensive API makes it easy to integrate Twistlock data into larger central dashboards.
 
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
-handling between clients and the app.
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
 
 ## <a id='features'></a>Key Features
 
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io). 
-Make sure you list the key features of the tile (the integration). 
-We cannot accept a list of the key features of your product that we are integrating.
+Twistlock for PCF lets you:
 
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one
-* Feature two
-* Feature three
-
+* Continously scan droplets in your blobstores for known vulnerabilities.
+* Review and share scan reports across the team (Developers, DevOps, and Security).
+* Raise alerts and route them to the right party when the scanner finds issues that violate policy (email, Slack, JIRA, and more).
+* Integrate scanning into your CI/CD pipeline with the command line scanner. Pass or fail builds based on policy.
+* Assess risk and pinpoint specific vulnerabilities in your environment with the Vulnerability Explorer.
+* Retrieve scan report data via the comprehensive API for deep integration with other tools, dashboards, and processes.
 
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version-support information for Twistlock for PCF.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>18.11</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2019)</td>
+        <td>December 3, 2018</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>YOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>18.11</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. 2.2.x, 2.3.x, and 2.4.x)</td>
+        <td>2.2.x and 2.3.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>vYOUR-COMPATIBLE-PIVOTAL-APPLICATION-SERVICE-VERSION (Ex. 2.2.x, 2.3.x, and 2.4.x)</td>
+        <td>2.2.x and 2.3.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
-    </tr>
-    <tr>
-        <td>IPsec support?</td>
-        <td>[Yes or No]</td>
+        <td>All platforms</td>
     </tr>
 </table>
 
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+Twistlock for PCF has the following requirements:
 
-YOUR-PRODUCT-NAME has the following requirements:
++ You have a Twistlock license.
 
-+ PREREQUISITE-1
++ You have [installed Twistlock Console](https://docs.twistlock.com/docs/latest/install/getting_started.html).
+Twistlock Console runs as a container.
+You can run it in Pivotal Container Service (PKS) or on a stand-alone virtual machine using Twistlock's Onebox install.
 
-+ PREREQUISITE-2
-
-## <a id="limitations"></a>Limitations
-
-**List any known limitations.**
 
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) or [Twistlock Support](mailto:support@twistlock.com).
 
-## <a id='license'></a>License
 
-**List any license information here.**
+## <a id="feedback"></a>Troubleshooting
+
+For help and troubleshooting, contact [Twistlock Support](mailto:support@twistlock.com).
