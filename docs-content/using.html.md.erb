@@ -1,15 +1,46 @@
 ---
-title: Using YOUR-PRODUCT-NAME
+title: Using Twistlock for PCF
 owner: Partners
 ---
 
-This topic describes how to use YOUR-PRODUCT-NAME.
+Configure Twistlock to scan your blobstore, then review the scan reports.
 
-##<a id='using'></a> Using YOUR-PRODUCT-NAME
+##<a id='scanning'></a> Configure Twistlock to Scan a Blobstore
 
-**This topic should include any instructions for how to use the service or dashboard created by the tile. 
-Give procedures for how to perform the different functions offered by your product and provide screenshots where necessary.** 
+1. Log into Twistlock Console.
 
-**You can also use this section to include information about Architecture and Troubleshooting for known errors. 
-If you include a Troubleshooting section, follow the Symptom/Explanation format used in the 
-[Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic**.
+1. Go to **Defend > Vulnerabilities > PCF Blobstore**.
+
+1. Click **Add PCF Blobstore settings**.
+
+1. Specify the cloud controller.
+
+1. Specify the droplets to scan.
+To scan all droplets, enter a wildcard (*).
+
+1. Specify the maxiumum number of droplets to scan.
+To scan all droplets, enter 0.
+
+1. Click **Add**.
+
+    <%= image_tag("configure_blobstore.png", :width => "600") %>
+
+1. Click **Save**.
+
+
+##<a id='reviewing'></a> Review Scan Reports
+
+1. Log into Twistlock Console.
+
+1. Go to **Monitor > Vulnerabilities > PCF Blobstore** to see a list of summary reports for each droplet.
+
+    <%= image_tag("scan_reports.png", :width => "600") %>
+
+1. To drill into a specific scan report, click on a row in the table.
+
+    <%= image_tag("detailed_scan_report.png", :width => "600") %>
+
+
+##<a id='info'></a> More Information
+
+To learn how to set policies, send alerts, and set up scans in the CI pipeline, see the [Twistlock documentation](https://docs.twistlock.com/docs/).
