@@ -3,17 +3,19 @@ title: Installing Twistlock for PCF
 owner: Partners
 ---
 
-This topic describes how to install and configure Twistlock for PCF.
+This topic describes how to install and configure Twistlock for Pivotal Cloud Foundry (PCF).
 After the install is complete, Twistlock Defender will be running in your environment.
 
-##<a id='install'></a> Import the Twistlock Tile
+##<a id='install'></a> Import Twistlock for PCF
+
+To download and import Twistlock for PCF into Ops Manager, do the following:
 
 1. Download the latest Twistlock release from [Pivotal Network](https://network.pivotal.io).
 
 1. In the Ops Manager Installation Dashboard, click **Import a Product**, and select the file you just downloaded.
 
 
-##<a id='install'></a> Retrieve the Install Command
+##<a id='retrieve'></a> Retrieve the Install Command
 
 Retrieve the install command from Twistlock Console.
 It is used to configure the tile.
@@ -22,7 +24,7 @@ You should have installed Twistlock Console somewhere in your environment alread
 You can run it in Pivotal Container Service (PKS) or on a stand-alone virtual machine with Twistlock's Onebox install.
 For more information, see the [Twistlock doc site](https://docs.twistlock.com/docs/latest/install/getting_started.html).
 
-1. Log into Twistlock Console.
+1. Log in to Twistlock Console.
 
 1. Go to **Manage > Defenders > Deploy**.
 
@@ -39,7 +41,9 @@ You will use it in the next section.
     <%= image_tag("install_cmd.png", :width => "600") %>
 
 
-##<a id='install'></a> Install and Configure Twistlock for PCF
+##<a id='configure'></a> Install and Configure Twistlock for PCF
+
+To configure and deploy the Twistlock for PCF tile, do the following:
 
 1. Navigate to the Ops Manager Installation Dashboard.
 
@@ -50,15 +54,17 @@ Click the **+** button next to the version of the tile you want to install.
 
 1. Click the newly added **Twistlock for PCF** tile.
 
-1. In **Assign AZs and Network Assignments**, specify where Twistlock Defender should run, then click **Save**.
+1. In **Assign AZs and Network Assignments**, specify where Twistlock Defender should run,
+   and then click **Save**.
 
-1. In **Twistlock Component Configuration**, enter the install command, then click **Save**.
+1. In **Twistlock Component Configuration**, enter the install command, and then click **Save**.
 
-1. In **Credentials**, enter your Twistlock Console credentials, then click **Save**.
+1. In **Credentials**, enter your Twistlock Console credentials, and then click **Save**.
 Your [role](https://docs.twistlock.com/docs/latest/access_control/user_roles.html)  must be Defender Manager or higher.
 
 1. Install the Twistlock tile.
-Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select **Twistlock for PCF**, then click **Apply changes**.
+Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select **Twistlock for PCF**,
+and then click **Apply changes**.
 
 1. After the changes are applied, validate that Twistlock Defender is running.
 Log into Twistlock Console, then navigate to **Manage > Defenders > Manage**.
