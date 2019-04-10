@@ -3,11 +3,6 @@ title: Twistlock for PCF (Beta)
 owner: Partners
 ---
 
-<p class="note warning"><strong> WARNING:</strong>
-This tile requires a Trusty stemcell.
-The end-of-life date for Ubuntu Trusty is April 2019.
-If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
-
 <p class="note warning">
 <strong>WARNING! </strong>
 The Twistlock for Pivotal Cloud Foundry (PCF) tile is currently in beta and is intended for evaluation and test purposes only.
@@ -17,14 +12,14 @@ Do not use this product in a PCF production environment.
 
 ## <a id='overview'></a>Overview
 
-The Twistlock Cloud Native Cybersecurity Platform provides full lifecycle security for containerized environments and cloud native applications.
-It is purpose-built to deliver security for modern applications by embedding security controls directly into existing processes.
-From pipeline to perimeter, Twistlock enables security teams to scale securely and devops teams to deploy fearlessly.
+The Twistlock Cloud Native Cybersecurity Platform provides full lifecycle security for containerized environments and cloud native apps.
+It's purpose-built to deliver security for modern applications by embedding security controls directly into existing workflows.
+From pipeline to perimeter, Twistlock enables security teams to scale securely, and DevOps to deploy fearlessly.
 
-Twistlock for PCF enables organizations to continuously scan droplets in their blobstores for vulnerabilities.
-The Twistlock Intelligence Stream sources vulnerability data from 30+ upstream projects, commercial sources, and includes proprietary research from Twistlock Labs.
+Twistlock for PCF lets organizations continuously scan droplets in their blobstores for vulnerabilities.
+The Twistlock Intelligence Stream sources vulnerability data from commercial vendors, 30+ upstream projects, and proprietary Twistlock Labs research.
 The Twistlock scanner can be integrated directly into your CI pipeline to pass or fail builds based on policy.
-Scan report data is available in open formats, such as CSV and JSON.
+Scan report data is available in open formats, including CSV and JSON.
 The comprehensive API makes it easy to integrate Twistlock data into larger central dashboards.
 
 
@@ -32,7 +27,7 @@ The comprehensive API makes it easy to integrate Twistlock data into larger cent
 
 Twistlock for PCF lets you:
 
-* Continously scan droplets in your blobstores for known vulnerabilities.
+* Continously scan droplets in your blobstores for vulnerabilities.
 * Review and share scan reports across the team (Developers, DevOps, and Security).
 * Raise alerts and route them to the right party when the scanner finds issues that violate policy (email, Slack, JIRA, and more).
 * Integrate scanning into your CI/CD pipeline with the command line scanner. Pass or fail builds based on policy.
@@ -49,27 +44,27 @@ The following table provides version and version-support information for Twistlo
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>18.11.96</td>
+        <td>19.03.311</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>December 3, 2018</td>
+        <td>April 10, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>18.11.0</td>
+        <td>19.03.0</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v2.1.x, v2.2.x, and v2.3.x</td>
+        <td>v2.3.x, v2.4,x, and v2.5.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>v2.1.x, v2.2.x, and v2.3.x</td>
+        <td>v2.3.x, v2.4.x, and v2.5.x</td>
     </tr>
     <tr>
        <td>BOSH stemcell version</td>
-       <td>Ubuntu Trusty</td>
+       <td>Ubuntu Xenial</td>
     </tr>
     <tr>
         <td>IaaS support</td>
@@ -85,13 +80,14 @@ Twistlock for PCF has the following requirements:
 + You have a Twistlock license.
 
 + You have [installed Twistlock Console](https://docs.twistlock.com/docs/latest/install/getting_started.html).
-Twistlock Console runs as a container.
-You can run it in Pivotal Container Service (PKS) or on a stand-alone virtual machine using Twistlock's Onebox install.
+Twistlock Console is delivered as a container image.
+You can run it on Pivotal Container Service (PKS) or a stand-alone virtual machine.
+For stand-alone virtual machines, use Twistlock Onebox, which lets you quickly install Twistlock components onto any Linux box with Docker Engine.
 
 
 ## <a id="feedback"></a>Feedback
 
-If you have a feature request, questions, or information about a bug, please email
+If you have a feature request, bug report, or other questions, email
 [Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) or [Twistlock Support](mailto:support@twistlock.com).
 
 
