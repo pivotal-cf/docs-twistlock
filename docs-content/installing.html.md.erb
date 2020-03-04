@@ -1,14 +1,14 @@
 ---
-title: Installing Twistlock for Pivotal Platform
+title: Installing Twistlock for VMware Tanzu
 owner: Partners
 ---
 
-This topic describes how to install and configure Twistlock for Pivotal Platform.
+This topic describes how to install and configure Twistlock for VMware Tanzu.
 After the install is complete, Twistlock Defender will be running in your environment.
 
-##<a id='install'></a> Import Twistlock for Pivotal Platform
+##<a id='install'></a> Import Twistlock for VMware Tanzu
 
-To download and import Twistlock for Pivotal Platform into Ops Manager, do the following:
+To download and import Twistlock for VMware Tanzu into Ops Manager, do the following:
 
 1. Download the latest Twistlock release from [Pivotal Network](https://network.pivotal.io).
 
@@ -28,10 +28,10 @@ For more information, see the [Twistlock doc site](https://docs.twistlock.com/do
 
 1. Go to **Manage > Defenders > Deploy**.
 
-1. Choose the DNS name or IP address the Pivotal Platform Defender will use to connect to Console.
+1. Choose the DNS name or IP address the VMware Tanzu Defender will use to connect to Console.
    If a suitable option is not available, go to **Manage > Defenders > Names**, and add a DNS name or IP address to the SAN table.
 
-1. Set the Defender type to **Pivotal Platform**.
+1. Set the Defender type to **VMware Tanzu**.
 
 1. Leave the Defender listener type set to **None**.
 
@@ -41,18 +41,18 @@ You will use it in the next section.
     <%= image_tag("install_cmd.png", :width => "600") %>
 
 
-##<a id='configure'></a> Install and Configure Twistlock for Pivotal Platform
+##<a id='configure'></a> Install and Configure Twistlock for VMware Tanzu
 
-To configure and deploy the Twistlock for Pivotal Platform tile, do the following:
+To configure and deploy the Twistlock for VMware Tanzu tile, do the following:
 
 1. Navigate to the Ops Manager Installation Dashboard.
 
-1. Add the Twistlock for Pivotal Platform tile to your staging area.
+1. Add the Twistlock for VMware Tanzu tile to your staging area.
 Click the **+** button next to the version of the tile you want to install.
 
     <%= image_tag("add_tile_to_staging.png", :width => "250") %>
 
-1. Click the newly added **Twistlock for Pivotal Platform** tile.
+1. Click the newly added **Twistlock for VMware Tanzu** tile.
 
 1. In **Assign AZs and Network Assignments**, specify where Twistlock Defender should run,
    and then click **Save**.
@@ -63,11 +63,11 @@ Click the **+** button next to the version of the tile you want to install.
 Your [role](https://docs.twistlock.com/docs/latest/access_control/user_roles.html)  must be Defender Manager or higher.
 
 1. Install the Twistlock tile.
-Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select **Twistlock for Pivotal Platform**,
+Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select **Twistlock for VMware Tanzu**,
 and then click **Apply changes**.
 
 1. After the changes are applied, validate that Twistlock Defender is running.
 Log into Twistlock Console, then navigate to **Manage > Defenders > Manage**.
-In the table of deployed Defenders, you should see a Defender of type **Pivotal Platform**.
+In the table of deployed Defenders, you should see a Defender of type **VMware Tanzu**.
 
     <%= image_tag("defender_installed.png", :width => "600") %>
