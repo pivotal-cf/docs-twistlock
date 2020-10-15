@@ -1,9 +1,9 @@
 ---
-title: Using Twistlock for VMware Tanzu
+title: Using Prisma Cloud for VMware Tanzu
 owner: Partners
 ---
 
-Configure Twistlock to scan your blobstore, then review the scan reports.
+Configure Prisma Cloud to scan your blobstore, then review the scan reports.
 
 ##<a id='scanning'></a> Configure Twistlock to Scan a Blobstore
 
@@ -30,19 +30,23 @@ To scan all droplets, enter 0.
 1. Click **Save**.
 
 
+##<a id='scanning_images'></a> Configure Prisma Cloud to Scan Registries
+
+You can also configure your deployed Defenders to scan your container registries.
+Use the standard setup procedure documented [here](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/vulnerability_management/registry_scanning0/scan_docker_registry_v2.html).
+
+
 ##<a id='reviewing'></a> Review Scan Reports
 
 To review scan reports for VMware Tanzu blobstore droplets, do the following:
 
 1. Log in to Twistlock Console.
 
-1. Go to **Monitor > Vulnerabilities > VMware Tanzu Blobstore** to see a list of summary reports for each droplet.
+1. Go to **Monitor > Vulnerabilities > VMware PCF Blobstore** to see a list of summary reports for each droplet.
 
     <%= image_tag("scan_reports.png", :width => "600") %>
 
 1. To drill into a specific scan report, click on a row in the table.
-
-    <%= image_tag("detailed_scan_report.png", :width => "600") %>
 
 
 ##<a id='info'></a> More Information

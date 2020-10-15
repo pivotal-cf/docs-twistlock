@@ -5,6 +5,18 @@ owner: Partners
 
 These are release notes for Twistlock for VMware Tanzu.
 
+##<a id="ver"></a>20.09.345
+
+**Release Date:** October 12, 2020
+
+* Update tile to Twistlock's 20.09 major release.
+* Adds support for runtime protection for apps running on VMWare Tanzu TAS.
+
+<p class='note'><strong>Note:</strong>If you’re upgrading from 20.04, you must completely remove the 20.04 tile before installing the 20.09 tile.
+Previous versions of the tile deployed a single Defender on a single stand-alone VM for blobstore scanning only.
+The new tile deploys Defender to every Diego cell to protect your apps at runtime.
+Blobstore scanning is still supported with the new deployment architecture.</p>
+
 ##<a id="ver"></a>20.04.163
 
 **Release Date:** April 30, 2020

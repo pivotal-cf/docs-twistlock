@@ -1,73 +1,112 @@
 ---
-title: Installing Twistlock for VMware Tanzu
+title: Installing Prisma Cloud for VMware Tanzu
 owner: Partners
 ---
 
-This topic describes how to install and configure Twistlock for VMware Tanzu.
-After the install is complete, Twistlock Defender will be running in your environment.
+Install and configure Prisma Cloud for VMware Tanzu.
+After the install is complete, Prisma Cloud Defender will be running in your environment.
 
-##<a id='install'></a> Import Twistlock for VMware Tanzu
+<p class='note'><strong>Note:</strong>
+If you're upgrading from a previous release, you must first uninstall any previous versions of PCF Defender.
+The new 20-09 tile has been rearchitected.
+The old tile created a dedicated VM in the TAS environment with a Defender installed, and supported blobstore scanning only.
+The new tile installs Defender on every Diego cell in the TAS environment, with expanded support for app scanning, host scanning, and runtime defense.
+</p>
 
-To download and import Twistlock for VMware Tanzu into Ops Manager, do the following:
+**Prerequisites**: Prisma Cloud Console is already installed and running in your environment.
+If you're using Prisma Cloud Enterprise Edition, Console is delivered as SaaS service, so you're all set.
+If you're using Prisma Cloud Compute Edition, you've got a number of options.
+You could install Console on a stand-alone virtual machine with Onebox or as a pod in Tanzu Kubernetes Grid.
 
-1. Download the latest Twistlock release from [Pivotal Network](https://network.pivotal.io).
+##<a id='install'></a> Import Prisma Cloud for VMware Tanzu
 
-1. In the Ops Manager Installation Dashboard, click **Import a Product**, and select the file you just downloaded.
+1. In Prisma Cloud Console, go to **Manage > System > Downloads**, and download the tile.
 
+1. In the Ops Manager Installation Dashboard, click **Import a Product**, and select the tile you just downloaded.
 
-##<a id='retrieve'></a> Retrieve the Install Command
+1. Retrieve the install command from Prisma Cloud Console.
+It's used to configure the tile.
 
-Retrieve the install command from Twistlock Console.
-It is used to configure the tile.
+    1. Go to **Manage > Defenders > Deploy > Single Defender**.<br><br>
 
-You should have already installed Twistlock Console somewhere in your environment.
-You can run it in Pivotal Container Service (PKS) or on a stand-alone virtual machine with Twistlock's Onebox install.
-For more information, see the [Twistlock doc site](https://docs.twistlock.com/docs/latest/install/getting_started.html).
+    1. Choose the DNS name or IP address the PCF Defender will use to connect to Console.
+   If a suitable option is not available, go to **Manage > Defenders > Names**, and add a DNS name or IP address to the SAN table.<br><br>
 
-1. Log in to Twistlock Console.
+    1. Set the Defender type to **PCF Defender**.<br><br>
 
-1. Go to **Manage > Defenders > Deploy**.
+    1. Copy the install command and set it aside.
 
-1. Choose the DNS name or IP address the VMware Tanzu Defender will use to connect to Console.
-   If a suitable option is not available, go to **Manage > Defenders > Names**, and add a DNS name or IP address to the SAN table.
+1. Go to the PCF Ops Manager Installation Dashboard.
 
-1. Set the Defender type to **VMware Tanzu**.
-
-1. Leave the Defender listener type set to **None**.
-
-1. Copy the install command and set it aside.
-You will use it in the next section.
-
-    <%= image_tag("install_cmd.png", :width => "600") %>
-
-
-##<a id='configure'></a> Install and Configure Twistlock for VMware Tanzu
-
-To configure and deploy the Twistlock for VMware Tanzu tile, do the following:
-
-1. Navigate to the Ops Manager Installation Dashboard.
-
-1. Add the Twistlock for VMware Tanzu tile to your staging area.
+1. Add the Prisma Cloud tile to your staging area.
 Click the **+** button next to the version of the tile you want to install.
 
-    <%= image_tag("add_tile_to_staging.png", :width => "250") %>
 
-1. Click the newly added **Twistlock for VMware Tanzu** tile.
+##<a id='configure'></a> Install and Configure the Tile
 
-1. In **Assign AZs and Network Assignments**, specify where Twistlock Defender should run,
-   and then click **Save**.
+By default Prisma Cloud performs strict validation of your Cloud Controller's (CC) TLS certificate.
+Strict validation verifies the name, signer, and validity date of the CC's certificate.
+If you're using self-signed certificates, this check will fail.
+To add your custom certificates to trusted cert list, you need to add the custom CA's cert on the VM where the Prisma Cloud tile runs. 
+For more details about how to do this, see [Tanzu trusted certificates](https://docs.pivotal.io/ops-manager/2-9/trusted-certificates.html).
 
-1. In **Twistlock Component Configuration**, enter the install command, and then click **Save**.
+You can optionally disable strict validation.
+Even with strict validation disabled, the sesssion is still encrypted.
+Skip strict validation when:
 
-1. In **Credentials**, enter your Twistlock Console credentials, and then click **Save**.
-Your [role](https://docs.twistlock.com/docs/latest/access_control/user_roles.html)  must be Defender Manager or higher.
+* You're using self-signed certificates.
+* You're using certificates signed by a CA that isn't in your cert store.
+* When there's a mismatch between the address you're using to connect to the CC and the common name (CN) or subject alternative name (SAN) in the CC's certificate.
 
-1. Install the Twistlock tile.
-Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select **Twistlock for VMware Tanzu**,
-and then click **Apply changes**.
+1. Click the newly added **Prisma Cloud for PCF** tile.
 
-1. After the changes are applied, validate that Twistlock Defender is running.
-Log into Twistlock Console, then navigate to **Manage > Defenders > Manage**.
-In the table of deployed Defenders, you should see a Defender of type **VMware Tanzu**.
+1. In **Prisma Cloud Component Configuration**, paste the install command you copied from Prisma Cloud Console, then click **Save**.
 
-    <%= image_tag("defender_installed.png", :width => "600") %>
+1. To skip strict validation of your Cloud Controller's (CC) TLS certificate, enable **Skip Cloud Controller TLS validation**.
+
+1. If you have Prisma Cloud Compute Edition (self-hosted Console):
+
+    1. In **Credentials**, select your preferred authentication method: Basic Authentication or Certificate-based Authentication.
+Your role must be [Defender Manager](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/authentication/user_roles.html) or higher.<br><br>
+
+    1. For Basic Authentication, enter your Prisma Cloud Console credentials, then click **Save**.<br><br>
+
+    1. For certificate-based authentication, paste the certificate and private key used for authentication in PEM format, then click **Save**.
+For certificate-based authentication, the root CA used to sign the certificate used for authentication must be entered under **Manage > Authentication > System Certificates > Advanced Certificate Configuration**.
+
+1. If you have Prisma Cloud Enterprise Edition (SaaS Console):
+
+    1. In **Credentials**, enter your Prisma Cloud Console credentials, then click **Save**.
+Your role must be [Defender Manager](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/authentication/user_roles.html) or higher.
+Certificate-based authentication is not supported with Prisma Cloud Enterprise Edition.
+
+1. Install the Prisma Cloud tile.
+Return to the Ops Manager Installation Dashboard, click **Review Pending Changes**, select both **Prisma Cloud for PCF** and **Pivotal Application Service**, then click **Apply changes**.
+
+    <p class='note'><strong>Note:</strong>
+    Pivotal Application Service must be staged when installing the Prisma Cloud tile.
+    </p>
+
+##<a id='validate'></a> Validate your Installation
+
+After the changes are applied, validate that Prisma Cloud Defenders are running in your environment.
+
+1. Log into Prisma Cloud Console.
+
+1. Go to **Manage > Defenders > Manage**.
+
+1. In the table of deployed Defenders, you should see a Defender of type **PCF**, one per Diego cell.
+
+    <%= image_tag("tas_defenders_deployed.png", :width => "600") %>
+
+<p class='note'><strong>Note:</strong>
+Prisma Cloud reports the agentID in the Host field.
+To correlate an agentID to a Diego cell IP address, and determine exactly which host runs a Defender, login to an Diego cell, and inspect */var/vcap/instance/dns/records.json*.
+This file shows how the agentID maps to a host IP address.
+</p>
+
+<p class='note'><strong>Note:</strong>
+If a PCF Defender disconnects from Console for more than one day, all data it collected is purged from Console.
+The Defender is also removed from the table in **Manage > Defenders > Manage**.
+The period of time that data from a disconneted Defender is retained (by default, one day) can be configured in **Manage > Defenders > Manage > Defenders > Advanced Settings**.
+</p>
