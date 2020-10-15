@@ -3,13 +3,28 @@ title: Using Prisma Cloud for VMware Tanzu
 owner: Partners
 ---
 
-Configure Prisma Cloud to scan your blobstore, then review the scan reports.
+Configure Prisma Cloud to secure your environment.
 
-##<a id='scanning'></a> Configure Twistlock to Scan a Blobstore
 
-To configure Twistlock to scan a blobstore, do the following:
+##<a id='visibility'></a> Review your Environment
 
-1. Log in to Twistlock Console.
+After deploying Defenders to VMware Tanzu TAS, Prisma Cloud Defenders automatically gather security information about your environment.
+
+Go to **Radar > Containers** to see your running apps.
+By default, nodes on the Radar canvas are color-coded by the highest serverity vulnerability detected in the container.
+Click on a node to inspect the security data collected for the containerized app, including vulnerability, compliance, and runtime issues.
+
+<%= image_tag("tanzu_radar.png", :width => "600") %>
+
+Defender also automatically scans each Diego cell host for vulnerability and compliance issues.
+Go to **Monitor > Vulnerabilities > Hosts** and **Monitor > Compliance > Hosts** to review the information.
+
+
+##<a id='scanning'></a> Scan Blobstores
+
+To configure Prisma Cloud to scan a blobstore, do the following:
+
+1. Log in to Prisma Cloud Compute Console.
 
 1. Go to **Defend > Vulnerabilities > VMware Tanzu Blobstore**.
 
@@ -25,12 +40,12 @@ To scan all droplets, enter 0.
 
 1. Click **Add**.
 
-    <%= image_tag("configure_blobstore.png", :width => "600") %>
+    <%= image_tag("configure_blobstore_scanning.png", :width => "600") %>
 
 1. Click **Save**.
 
 
-##<a id='scanning_images'></a> Configure Prisma Cloud to Scan Registries
+##<a id='scanning_images'></a> Scan Registries
 
 You can also configure your deployed Defenders to scan your container registries.
 Use the standard setup procedure documented [here](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/vulnerability_management/registry_scanning0/scan_docker_registry_v2.html).
@@ -40,15 +55,36 @@ Use the standard setup procedure documented [here](https://docs.paloaltonetworks
 
 To review scan reports for VMware Tanzu blobstore droplets, do the following:
 
-1. Log in to Twistlock Console.
+1. Log in to Prisma Cloud Compute Console.
 
 1. Go to **Monitor > Vulnerabilities > VMware PCF Blobstore** to see a list of summary reports for each droplet.
 
-    <%= image_tag("scan_reports.png", :width => "600") %>
+    <%= image_tag("blobstore_scan_reports.png", :width => "600") %>
 
 1. To drill into a specific scan report, click on a row in the table.
 
 
+##<a id='runtime'></a> Runtime Protection
+
+Prisma Cloud Defender uses machine learning to automatically model how apps were designed to run.
+To review the automatically generated models, go to **Monitor > Runtime > Container Models**.
+
+<%= image_tag("tanzu_container_models.png", :width => "600") %>
+
+When an app does something that's not modelled, Prisma Cloud generates an audit.
+There are many ways you can ingest audits into your monitoring system, including syslog.
+To review runtime alerts, go to **Monitor > Events**.
+
+<%= image_tag("tanzu_runtime_audits.png", :width => "600") %>
+
+Sometimes, you might want to take more stringent blocking action rather than simply just alerting when Defender detects specific known-bad activity.
+Other times, the automatically generated models don't fully capture what's considered known-good behavior.
+In both cases, you can augment Prisma Cloud models with runtime rules.
+To create runtime rules, go to **Defend > Runtime > Container Policy**, and click **Add Rule**.
+
+<%= image_tag("tanzu_runtime_rule.png", :width => "600") %>
+
+
 ##<a id='info'></a> More Information
 
-To learn how to set policies, send alerts, and set up scans in the continuous integration pipeline, see the [Twistlock documentation](https://docs.twistlock.com/docs/).
+To learn how to set up scanning, configure policies, and send alerts, see the [Prisma Cloud documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud.html).

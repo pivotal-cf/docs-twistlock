@@ -1,26 +1,28 @@
 ---
-title: Twistlock for VMware Tanzu
+title: Prisma Cloud for VMware Tanzu
 owner: Partners
 ---
 
 ## <a id='overview'></a>Overview
 
-The Twistlock Cloud Native Cybersecurity Platform provides full lifecycle security for containerized environments and cloud native apps.
-It's purpose-built to deliver security for modern applications by embedding security controls directly into existing workflows.
-From pipeline to perimeter, Twistlock enables security teams to scale securely, and DevOps to deploy fearlessly.
+Prisma Cloud is a comprehensive cloud native security platform providing full lifecycle security for containerized environments and cloud native apps.
+It’s purpose-built to deliver security for modern applications by embedding security controls directly into existing workflows.
+Throughout the build, deploy, and run phases of the development lifecycle, Prisma Cloud enables security teams to scale securely, and DevOps to deploy fearlessly.
 
-Twistlock for VMware Tanzu lets organizations continuously scan droplets in their blobstores for vulnerabilities.
-The Twistlock Intelligence Stream sources vulnerability data from commercial vendors, 30+ upstream projects, and proprietary Twistlock Labs research.
-The Twistlock scanner can be integrated directly into your CI pipeline to pass or fail builds based on policy.
-Scan report data is available in open formats, including CSV and JSON.
-The comprehensive API makes it easy to integrate Twistlock data into larger central dashboards.
+Prisma Cloud for VMware Tanzu lets organizations continuously scan droplets in their blobstores for vulnerabilities.
+The Prisma Cloud Intelligence Stream sources vulnerability data from commercial vendors, 30+ upstream projects, and proprietary research.
+The Prisma Cloud scanner can be integrated directly into your CI pipeline to pass or fail builds based on policy.
+Scan report data is available in open formats, including CSV and JSON. The comprehensive API makes it easy to integrate Prisma Cloud data into larger central dashboards.
 
 
 ## <a id='features'></a>Key Features
 
-Twistlock for VMware Tanzu lets you:
+Prisma Cloud for VMware Tanzu lets you:
 
-* Continously scan droplets in your blobstores for vulnerabilities.
+* Secure your apps at runtime with Prisma Cloud runtime defense.
+* Gain visibility into the containers and hosts in your environment, their vulnerabilities and compliance issues.
+* Continuously scan droplets in your blobstores for vulnerabilities.
+* Continuously scan the images in your registries for vulnerabilities and compliance issues.
 * Review and share scan reports across the team (Developers, DevOps, and Security).
 * Raise alerts and route them to the right party when the scanner finds issues that violate policy (email, Slack, JIRA, and more).
 * Integrate scanning into your CI/CD pipeline with the command line scanner. Pass or fail builds based on policy.
@@ -30,34 +32,30 @@ Twistlock for VMware Tanzu lets you:
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information for Twistlock for VMware Tanzu.
+The following table provides version and version-support information for Prisma Cloud for VMware Tanzu.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>20.04.163</td>
+        <td>20.09.345</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>April 30, 2020</td>
+        <td>October 15, 2020</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>20.04.0</td>
+        <td>20.09.0</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v2.7.x, v2.8.x</td>
+        <td>v2.8.x, v2.9.x</td>
     </tr>
     <tr>
         <td>Compatible VMware Tanzu Application Service for VMs version(s)</td>
-        <td>v2.7.x, v2.8.x</td>
-    </tr>
-    <tr>
-       <td>BOSH stemcell version</td>
-       <td>Ubuntu Xenial</td>
+        <td>v2.8.x, v2.9.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
@@ -68,14 +66,14 @@ The following table provides version and version-support information for Twistlo
 
 ## <a id="reqs"></a>Requirements
 
-Twistlock for VMware Tanzu has the following requirements:
+Prisma Cloud for VMware Tanzu TAS has the following requirements:
 
-+ You have a Twistlock license.
-
-+ You have [installed Twistlock Console](https://docs.twistlock.com/docs/latest/install/getting_started.html).
-Twistlock Console is delivered as a container image.
+* You have a Prisma Cloud license.
+* For Prisma Cloud Compute Edition, you have installed Prisma Cloud Console.
+Prisma Cloud Console is delivered as a container image.
 You can run it on Pivotal Container Service (PKS) or a stand-alone virtual machine.
-For stand-alone virtual machines, use Twistlock Onebox, which lets you quickly install Twistlock components onto any Linux box with Docker Engine.
+For stand-alone virtual machines, use the Onebox install target, which lets you quickly install Prisma Cloud components onto any Linux box with Docker Engine.
+* For Prisma Cloud Enterprise Edition, Palo Alto Networks hosts the Console for you, so there are no prerequisites to install.
 
 
 ## <a id="feedback"></a>Feedback
