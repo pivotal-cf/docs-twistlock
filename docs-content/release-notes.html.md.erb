@@ -1,9 +1,25 @@
 ---
-title: Release Notes for Twistlock for VMware Tanzu
+title: Release Notes for Prisma Cloud for VMware Tanzu
 owner: Partners
 ---
 
-These are release notes for Twistlock for VMware Tanzu.
+These are release notes for Prisma Cloud for VMware Tanzu.
+
+##<a id="ver"></a>20.12.531
+
+**Release Date:** January 5, 2021
+
+* Update tile to Prisma Cloud Compute's 20.12 major release.
+
+<p class='note'><strong>Note:</strong>Prisma Cloud introduced runtime protection for apps running on VMware Tanzu Application Service in version 20.09.
+The 20.09 tile is available for download from Prisma Cloud Compute Console only (Manage > System > Downloads).
+It's not available for download from Tanzu Network.
+The 20.12 tile is available for download from both locations.</p>
+
+<p class='note'><strong>Note:</strong>If you’re upgrading from 20.04, you must completely remove the 20.04 tile before installing the 20.12 tile.
+Version 20.04 and older deployed a single Defender to a single stand-alone VM for blobstore scanning only.
+Version 20.09 and newer deploy Defender to every Diego cell to protect your apps at runtime.
+Blobstore scanning is still supported with the new deployment architecture.</p>
 
 ##<a id="ver"></a>20.04.163
 
